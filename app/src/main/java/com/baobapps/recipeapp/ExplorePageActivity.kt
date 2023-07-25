@@ -9,17 +9,9 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.baobapps.recipeapp.ui.theme.Welcome_pageTheme
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class ExplorePageActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +29,33 @@ class ExplorePageActivity : ComponentActivity() {
         val image : ImageView = findViewById(R.id.logo_image)
         val logo : TextView = findViewById(R.id.logo_name)
         val slogan : TextView = findViewById(R.id.slogan_name) // Add the animations using variables
+
+        val bottomNavigationView : BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        @Suppress("DEPRECATION")
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.page_home -> {
+                    val intentHome = Intent(this, ExplorePageActivity::class.java)
+                    startActivity(intentHome)
+                    // Handle click for Home
+                    true
+                }
+                R.id.page_breakfast -> {
+                    // Handle click for Breakfast
+                    true
+                }
+                R.id.page_lunch -> {
+                    // Handle click for Lunch
+                    true
+                }
+                R.id.page_dinner -> {
+                    // Handle click for Dinner
+                    true
+                }
+                else -> false
+            }
+        }
+
 
         val recipeListView: ListView = findViewById(R.id.listViewRecipes)
         val recipeList: ArrayList<String> = ArrayList()

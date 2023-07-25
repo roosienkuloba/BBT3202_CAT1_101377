@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/page_home"
+        android:enabled="true"
+        android:icon="@drawable/home_24"
+        android:title="Home"/>
+    <item
+        android:id="@+id/page_breakfast"
+        android:enabled="true"
+        android:icon="@drawable/breakfast_24"
+        android:title="Breakfast"/>
+    <item
+        android:id="@+id/page_lunch"
+        android:enabled="true"
+        android:icon="@drawable/lunch_24"
+        android:title="Lunch"/>
+    <item
+        android:id="@+id/page_dinner"
+        android:enabled="true"
+        android:icon="@drawable/dinner_24"
+        android:title="Supper"/>
+</menu>
+
