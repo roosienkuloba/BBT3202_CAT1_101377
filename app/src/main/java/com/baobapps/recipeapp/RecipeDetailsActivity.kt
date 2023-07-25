@@ -10,6 +10,7 @@ import android.widget.ListView
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.cardview.widget.CardView
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -34,11 +35,28 @@ class RecipeDetailsActivity : ComponentActivity() {
 
         val image : ImageView = findViewById(R.id.logo_image) // Add the animation using variables
 
-        @Suppress("DEPRECATION") val selectedRecipe = intent.getStringExtra("SELECTED_RECIPE")  // Retrieve the selected recipe
-        Log.d(TAG, "SELECTED RECIPE RECEIVED") // Important for Debugging Purposes
+        val selectedRecipeIndex = intent.getIntExtra("SELECTED_RECIPE_INDEX", 0) // Get the index of the selected recipe that has been passed from the previous activity
 
-        val recipeTitle = findViewById<TextView>(R.id.recipe_title_text)
-        recipeTitle.text = selectedRecipe // Set the text of the TextView with the received value
+        val selectedRecipe = list_recipes[selectedRecipeIndex] // Get the selected recipe from the list
+
+
+        val recipesCardView: CardView = findViewById(R.id.cardView)
+        val textRecipeName: TextView = findViewById(R.id.textRecipeName)
+        val textRecipeType: TextView = findViewById(R.id.textRecipeType)
+        val textRecipeServings: TextView = findViewById(R.id.textRecipeServings)
+        val textRecipeDifficulty: TextView = findViewById(R.id.textRecipeDifficulty)
+        val textRecipeIngredients: TextView = findViewById(R.id.textRecipeIngredients)
+        val textRecipeInstructions: TextView = findViewById(R.id.textRecipeInstructions)
+        // Find the views inside the card view layout
+
+
+        // Set the recipe data to the views
+        textRecipeName.text = "${selectedRecipe.name}\n"
+        textRecipeType.text = "Type: ${selectedRecipe.type}\t"
+        textRecipeServings.text = "Servings: ${selectedRecipe.servings}\t"
+        textRecipeDifficulty.text = "Difficulty: ${selectedRecipe.difficultyLevel}\n"
+        textRecipeIngredients.text = "Ingredients:\n ${selectedRecipe.ingredients}\n"
+        textRecipeInstructions.text = "Instructions:\n ${selectedRecipe.instructions}\n"
 
     }
 

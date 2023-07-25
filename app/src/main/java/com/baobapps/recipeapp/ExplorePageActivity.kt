@@ -53,11 +53,8 @@ class ExplorePageActivity : ComponentActivity() {
         recipeListView.setOnItemClickListener { _, _, position, _ ->
             Log.d(TAG, "RECIPE SELECTED") // Important for Debugging Purposes
 
-            val selectedRecipe = recipeList[position].toString()
-            Log.d(TAG, "SELECTED RECIPE SAVED") // Important for Debugging Purposes
-
             val intent = Intent(this, RecipeDetailsActivity::class.java)
-            intent.putExtra("SELECTED_RECIPE", selectedRecipe)
+            intent.putExtra("SELECTED_RECIPE_INDEX", position)
             startActivity(intent)
         }
     }
