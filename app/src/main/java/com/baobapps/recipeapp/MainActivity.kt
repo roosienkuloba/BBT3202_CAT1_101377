@@ -24,11 +24,11 @@ import com.baobapps.recipeapp.ui.theme.Welcome_pageTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
         val TAG = "Main Activity"
 
         Log.d(TAG, "ONCREATE ACTIVITY CALLED ") //Important for Debugging purposes
-
-        super.onCreate(savedInstanceState)
 
         @Suppress("DEPRECATION")
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN) // Hide the status bar

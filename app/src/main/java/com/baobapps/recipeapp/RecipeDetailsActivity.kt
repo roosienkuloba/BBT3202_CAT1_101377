@@ -5,11 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
-import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -21,45 +19,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.baobapps.recipeapp.ui.theme.Welcome_pageTheme
 
-class ExplorePageActivity : ComponentActivity() {
+class RecipeDetailsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val TAG = "Explore Activity"
+        val TAG = "Recipe Details Activity"
 
         Log.d(TAG, "ONCREATE ACTIVITY CALLED ") //Important for Debugging purposes
 
         @Suppress("DEPRECATION")
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN) // Hide the status bar
 
-        setContentView(R.layout.activity_explore_page) // Declare the View for user
+        setContentView(R.layout.activity_recipe_details) // Declare the View for user
 
-        val image : ImageView = findViewById(R.id.logo_image)
-        val logo : TextView = findViewById(R.id.logo_name)
-        val slogan : TextView = findViewById(R.id.slogan_name) // Add the animations using variables
+        val image : ImageView = findViewById(R.id.logo_image) // Add the animation using variables
 
-        val recipeListView: ListView = findViewById(R.id.listViewRecipes)
-        val recipeList: ArrayList<String> = ArrayList()
+        @Suppress("DEPRECATION") val selectedRecipe = intent.getStringExtra("SELECTED_RECIPE")  // Retrieve the selected recipe
+        Log.d(TAG, "SELECTED RECIPE RECEIVED") // Important for Debugging Purposes
 
-        for (recipe in list_recipes) {
-            recipeList.add(recipe.name)
-        } // Extract the names of each recipe from the recipeList and add them to the recipeViewList
+        val recipeTitle = findViewById<TextView>(R.id.recipe_title_text)
+        recipeTitle.text = selectedRecipe // Set the text of the TextView with the received value
 
-
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, recipeList) // Create an ArrayAdapter
-
-        recipeListView.adapter = adapter // Bind it to the ListView
-
-        recipeListView.setOnItemClickListener { _, _, position, _ ->
-            Log.d(TAG, "RECIPE SELECTED") // Important for Debugging Purposes
-
-            val selectedRecipe = recipeList[position].toString()
-            Log.d(TAG, "SELECTED RECIPE SAVED") // Important for Debugging Purposes
-
-            val intent = Intent(this, RecipeDetailsActivity::class.java)
-            intent.putExtra("SELECTED_RECIPE", selectedRecipe)
-            startActivity(intent)
-        }
     }
 
     override fun onStart() {
@@ -90,7 +70,5 @@ class ExplorePageActivity : ComponentActivity() {
         super.onDestroy()
         Log.d(ContentValues.TAG, "ONDESTROY ACTIVITY CALLED") // Important for Debugging purposes
     }
-
-
 }
 

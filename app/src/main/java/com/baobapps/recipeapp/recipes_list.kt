@@ -6,7 +6,18 @@ data class recipes_list(
     var servings: Int,
     var difficultyLevel: String,
     var ingredients: List<String>,
-    var instructions: String)
+    var instructions: String) : CharSequence {
+    override val length: Int
+        get() = TODO("Not yet implemented")
+
+    override fun get(index: Int): Char {
+        TODO("Not yet implemented")
+    }
+
+    override fun subSequence(startIndex: Int, endIndex: Int): CharSequence {
+        TODO("Not yet implemented")
+    }
+}
 
 var list_recipes = listOf(
     recipes_list(
