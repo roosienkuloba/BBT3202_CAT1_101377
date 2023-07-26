@@ -1,6 +1,7 @@
 package com.baobapps.recipeapp
 
 import android.content.ContentValues
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
@@ -8,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.cardview.widget.CardView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class RecipeDetailsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +49,37 @@ class RecipeDetailsActivity : ComponentActivity() {
         textRecipeIngredients.text = "Ingredients:\n ${selectedRecipe.ingredients}\n"
         textRecipeInstructions.text = "Instructions:\n ${selectedRecipe.instructions}\n"
 
+        val bottomNavigationView : BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        @Suppress("DEPRECATION")
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.page_home -> {
+                    val intentHome = Intent(this, ExplorePageActivity::class.java)
+                    startActivity(intentHome)
+                    // Handle click for Home
+                    true
+                }
+                R.id.page_breakfast -> {
+                    val intentHome = Intent(this, BreakfastPageActivity::class.java)
+                    startActivity(intentHome)
+                    // Handle click for Breakfast
+                    true
+                }
+                R.id.page_lunch -> {
+                    val intentHome = Intent(this, LunchPageActivity::class.java)
+                    startActivity(intentHome)
+                    // Handle click for Lunch
+                    true
+                }
+                R.id.page_dinner -> {
+                    val intentHome = Intent(this, DinnerPageActivity::class.java)
+                    startActivity(intentHome)
+                    // Handle click for Dinner
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
     override fun onStart() {

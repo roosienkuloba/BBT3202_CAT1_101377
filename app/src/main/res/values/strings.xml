@@ -4,4 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_explore_page">ExplorePageActivity</string>
     <string name="title_activity_recipe_details">RecipeDetails</string>
+    <string name="title_activity_breakfast_page">BreakfastPageActivity</string>
+    <string name="title_activity_lunch_page">LunchPageActivity</string>
+    <string name="title_activity_dinner_page">DinnerPageActivity</string>
 </resources>

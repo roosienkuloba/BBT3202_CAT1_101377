@@ -13,7 +13,7 @@ import androidx.activity.ComponentActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
-class ExplorePageActivity : ComponentActivity() {
+class LunchPageActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -24,7 +24,7 @@ class ExplorePageActivity : ComponentActivity() {
         @Suppress("DEPRECATION")
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN) // Hide the status bar
 
-        setContentView(R.layout.activity_explore_page) // Declare the View for user
+        setContentView(R.layout.activity_lunch_page) // Declare the View for user
 
         val image : ImageView = findViewById(R.id.logo_image)
         val logo : TextView = findViewById(R.id.logo_name)
@@ -62,13 +62,14 @@ class ExplorePageActivity : ComponentActivity() {
             }
         }
 
-
         val recipeListView: ListView = findViewById(R.id.listViewRecipes)
         val recipeList: ArrayList<String> = ArrayList()
 
         for (recipe in list_recipes) {
-            recipeList.add(recipe.name)
-        } // Extract the names of each recipe from the recipeList and add them to the recipeViewList
+            if (recipe.type == "Lunch") {
+                recipeList.add(recipe.name)
+            }
+        }// Extract the names of each recipe from the recipeList and add them to the recipeViewList
 
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, recipeList) // Create an ArrayAdapter
