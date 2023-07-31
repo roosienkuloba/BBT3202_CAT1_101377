@@ -1,12 +1,17 @@
 package com.baobapps.recipeapp
 
-data class recipes_list(
+import androidx.room.Entity
+
+@Entity(tableName = "recipes")
+data class Recipes(
     var name: String,
     var type: String,
     var servings: Int,
     var difficultyLevel: String,
     var ingredients: String,
-    var instructions: String) : CharSequence {
+    var instructions: String
+    ) : CharSequence {
+
     override val length: Int
         get() = TODO("Not yet implemented")
 
@@ -20,7 +25,7 @@ data class recipes_list(
 }
 
 var list_recipes = listOf(
-    recipes_list(
+    Recipes(
         name = "Pizza Quesadilla",
         type = "Lunch",
         servings = 2,
@@ -54,7 +59,7 @@ var list_recipes = listOf(
             9. Eat hot or cold (done both and both taste good, hot and fresh is obviously better though).
         """.trimIndent()
     ),
-    recipes_list(
+    Recipes(
         name = "Rainbow Stir Fry - 15 MIN MEAL",
         type = "Supper",
         servings = 2,
@@ -87,7 +92,7 @@ var list_recipes = listOf(
             7. garnish with black sesame seeds and cilantro or micro greens 
         """.trimIndent()
     ),
-    recipes_list(
+    Recipes(
         name = "Crispy Cauliflower Tikka Wings",
         type = "Supper",
         servings = 2,
@@ -116,7 +121,7 @@ var list_recipes = listOf(
             5. to make the epic tacos try it with my mango salsa, coriander chutney, yoghurt mint sauce and slaw. otherwise just choose your favorite dip and enjoy!
         """.trimIndent()
     ),
-    recipes_list(
+    Recipes(
         name = "Chai Coconut Banana Bread",
         type = "Breakfast",
         servings = 6,
@@ -151,7 +156,7 @@ var list_recipes = listOf(
         """.trimIndent()
 
     ),
-    recipes_list(
+    Recipes(
         name = "Chai Spiced & Almond Oatmeal",
         type = "Lunch",
         servings = 2,

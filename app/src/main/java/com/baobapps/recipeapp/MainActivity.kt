@@ -40,6 +40,7 @@ class MainActivity : ComponentActivity() {
         android.os.Handler().postDelayed(
             {
                 val intent = Intent(this, ExplorePageActivity::class.java)
+                Log.d(TAG, "EXPLORE PAGE ACTIVITY CALLED ") //Important for Debugging purposes
 
                 val pairs = arrayOf<Pair<View, String>>(
                     Pair(image, "app_image"),

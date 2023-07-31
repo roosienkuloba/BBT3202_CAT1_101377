@@ -31,30 +31,27 @@ class ExplorePageActivity : ComponentActivity() {
         val slogan : TextView = findViewById(R.id.slogan_name) // Add the animations using variables
 
         val bottomNavigationView : BottomNavigationView = findViewById(R.id.bottomNavigationView)
-        @Suppress("DEPRECATION")
-        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+        bottomNavigationView.selectedItemId = R.id.page_home
+
+        bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.page_home -> {
-                    val intentHome = Intent(this, ExplorePageActivity::class.java)
-                    startActivity(intentHome)
+                    startActivity(Intent(this, ExplorePageActivity::class.java))
                     // Handle click for Home
                     true
                 }
                 R.id.page_breakfast -> {
-                    val intentHome = Intent(this, BreakfastPageActivity::class.java)
-                    startActivity(intentHome)
+                    startActivity(Intent(this, BreakfastPageActivity::class.java))
                     // Handle click for Breakfast
                     true
                 }
                 R.id.page_lunch -> {
-                    val intentHome = Intent(this, LunchPageActivity::class.java)
-                    startActivity(intentHome)
+                    startActivity(Intent(this, LunchPageActivity::class.java))
                     // Handle click for Lunch
                     true
                 }
                 R.id.page_dinner -> {
-                    val intentHome = Intent(this, DinnerPageActivity::class.java)
-                    startActivity(intentHome)
+                    startActivity(Intent(this, DinnerPageActivity::class.java))
                     // Handle click for Dinner
                     true
                 }
