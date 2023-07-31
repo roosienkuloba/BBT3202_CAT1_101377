@@ -8,19 +8,23 @@ import androidx.room.Update
 
 @Dao
 interface DAOInterface {
+    @Query("SELECT * FROM recipes" )
+    suspend fun getAll(): List<Recipes>
+
+    @Insert
+    suspend fun addRecipe(recipe: Recipes)
+
     @Query ("SELECT * FROM recipes WHERE id==id")
-        fun getRecipeById(id: Int): Recipes
+        suspend fun getRecipeById(id: Int): Recipes
 
     @Query("SELECT * FROM recipes WHERE type=='Breakfast'" )
-        fun getRecipeByBreakfast(type: String): List<Recipes>
+        suspend fun getRecipeByBreakfast(type: String): List<Recipes>
 
     @Query("SELECT * FROM recipes WHERE type=='Lunch'" )
-        fun getRecipeByLunch(type: String): List<Recipes>
+        suspend fun getRecipeByLunch(type: String): List<Recipes>
 
     @Query("SELECT * FROM recipes WHERE type=='Supper'" )
-        fun getRecipeBySupper(type: String): List<Recipes>
+        suspend fun getRecipeBySupper(type: String): List<Recipes>
 
-    @Query("SELECT * FROM recipes" )
-        fun getAll(): List<Recipes>
 
 }

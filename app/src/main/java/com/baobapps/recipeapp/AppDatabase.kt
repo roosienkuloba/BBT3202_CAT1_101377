@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import kotlin.coroutines.CoroutineContext
 
 @Database(entities = [Recipes::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
@@ -30,4 +31,8 @@ abstract class AppDatabase : RoomDatabase() {
 
         }
     }
+
+    //val newRecipe = Recipes(name = "Chicken Quesadilla")
+    //val appDatabase = AppDatabase.getInstance(context)
+    //appDatabase.recipeDao().insert(newRecipe)
 }

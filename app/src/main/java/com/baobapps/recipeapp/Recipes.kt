@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "recipes")
 data class Recipes(
-    @PrimaryKey(autoGenerate = false) val id: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
     var name: String,
     var type: String,
     var servings: Int,
@@ -16,7 +16,6 @@ data class Recipes(
 
 var list_recipes = listOf(
     Recipes(
-        id = 1,
         name = "Pizza Quesadilla",
         type = "Lunch",
         servings = 2,
@@ -51,7 +50,6 @@ var list_recipes = listOf(
         """.trimIndent()
     ),
     Recipes(
-        id = 2,
         name = "Rainbow Stir Fry - 15 MIN MEAL",
         type = "Supper",
         servings = 2,
@@ -85,7 +83,6 @@ var list_recipes = listOf(
         """.trimIndent()
     ),
     Recipes(
-        id = 3,
         name = "Crispy Cauliflower Tikka Wings",
         type = "Supper",
         servings = 2,
@@ -115,7 +112,6 @@ var list_recipes = listOf(
         """.trimIndent()
     ),
     Recipes(
-        id = 4,
         name = "Chai Coconut Banana Bread",
         type = "Breakfast",
         servings = 6,
@@ -151,7 +147,6 @@ var list_recipes = listOf(
 
     ),
     Recipes(
-        id = 4,
         name = "Chai Spiced & Almond Oatmeal",
         type = "Lunch",
         servings = 2,
