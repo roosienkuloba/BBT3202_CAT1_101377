@@ -1,18 +1,25 @@
 package com.baobapps.recipeapp
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
-@Entity(tableName = "recipes")
 data class Recipes(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
     var name: String,
     var type: String,
     var servings: Int,
     var difficultyLevel: String,
     var ingredients: String,
     var instructions: String
-    )
+    ) : CharSequence {
+
+    override val length: Int
+        get() = TODO("Not yet implemented")
+
+    override fun get(index: Int): Char {
+        TODO("Not yet implemented")
+    }
+
+    override fun subSequence(startIndex: Int, endIndex: Int): CharSequence {
+        TODO("Not yet implemented")
+    }
+}
 
 var list_recipes = listOf(
     Recipes(
