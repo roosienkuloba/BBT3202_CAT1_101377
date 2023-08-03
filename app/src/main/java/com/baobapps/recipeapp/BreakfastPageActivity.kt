@@ -26,6 +26,8 @@ class BreakfastPageActivity : ComponentActivity() {
 
         setContentView(R.layout.activity_breakfast_page) // Declare the View for user
 
+        val recipesDao = AppDatabase.getInstance(this).recipeDao() // Get the DAO
+
         val image : ImageView = findViewById(R.id.logo_image)
         val logo : TextView = findViewById(R.id.logo_name)
         val slogan : TextView = findViewById(R.id.slogan_name) // Add the animations using variables
